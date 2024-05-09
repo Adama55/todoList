@@ -4,19 +4,24 @@ import firebase_admin
 from firebase_admin import credentials
 
 import pyrebase
+import json
+from dotenv import dotenv_values
 
-from configs.firebase_config import firebase_config
+config = dotenv_values(".env")
+
+#from configs.firebase_config import firebase_config
 
 if not firebase_admin._apps:
 
     # Charge les informations d'authentification
-    cred = credentials.Certificate("configs/config_key.json")
+    cred = credentials.Certificate(json.loads(config['FIRBASE_SERVICE_ACCOUNT_KEY']))
+    
 
     # Initialise l'application Firebase 
     firebase_admin.initialize_app(cred)
 
 # Initialise l'application Firebase
-firebase = pyrebase.initialize_app(firebase_config)
+firebase = pyrebase.initialize_app(json.loads(config['FIRBASE_CONFIG']))
 
 # Crée une instance de la base de données Firebase
 db = firebase.database()
