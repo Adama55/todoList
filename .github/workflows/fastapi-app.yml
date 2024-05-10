@@ -4,8 +4,8 @@ on:
   workflow_dispatch
 
 env:
-  FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
-  FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
+  FIRBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIRBASE_SERVICE_ACCOUNT_KEY }}
+  FIRBASE_CONFIG: ${{ secrets.FIRBASE_CONFIG }}
 
 jobs:
   build:
@@ -26,9 +26,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Check secrets
-      run: cat .env
-
     - name: Test with pytest
       run: |
         pytest
