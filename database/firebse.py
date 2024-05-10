@@ -5,7 +5,7 @@ from firebase_admin import credentials
 
 import pyrebase
 import json
-from dotenv import dotenv_values
+from dotenv import load_dotenv
 
 load_dotenv()
 
