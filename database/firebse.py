@@ -10,8 +10,8 @@ from dotenv import dotenv_values
 load_dotenv()
 
 config={
-    "FIREBASE_SERVICE_ACCOUNT_KEY": os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY"),
-    "FIREBASE_CONFIG": os.getenv("FIREBASE_CONFIG")
+    "FIRBASE_SERVICE_ACCOUNT_KEY": os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY"),
+    "FIRBASE_CONFIG": os.getenv("FIREBASE_CONFIG")
 }
 
 #from configs.firebase_config import firebase_config
