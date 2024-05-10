@@ -1,7 +1,8 @@
-name: Python FastAPI CI
+name: Python FastAPI Cii
 
 on:
   workflow_dispatch
+  
   #push:
    # branches: ["main", "develop"]
    #pull_request:
