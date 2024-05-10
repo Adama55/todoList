@@ -21,6 +21,14 @@ def test_get_all_tasks(cleanup):
     response = client.get("/task/", headers=auth_headers)
     assert response.status_code == 200
 
+def test_get_all_tasks_unauthorized(cleanup):
+    # On n'effectue aucune inscription ni authentification
+    
+    response = client.get("/task/")
+    
+    # On vérifie que le code de status est 401 (non autorisé)
+    assert response.status_code == 401
+
 #Test pour ajout
 def test_add_new_task(cleanup):
     client.post("/auth/signup", json={"email": "test_adama@example.com", "password": "testpassword"})
@@ -44,6 +52,7 @@ def test_add_new_task(cleanup):
     # Supprimer la tâche après
     response = client.delete(f"/task/{task_id}", headers=auth_headers)
     assert response.status_code == 200
+
 
 
 def test_get_task_by_id(cleanup):
